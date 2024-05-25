@@ -90,7 +90,7 @@ namespace Mack.ToDoListAPI.Controllers
         private void LogSensitiveData()
         {
             // Problema 7: Log de dados sensíveis
-            _logger.LogInformation("Sensitive data: {0}", ToDoItems);
+            _logger.LogInformation("Sensitive data: {0} here", ToDoItems);
         }
 
         private bool IsValidTitle(string title)
