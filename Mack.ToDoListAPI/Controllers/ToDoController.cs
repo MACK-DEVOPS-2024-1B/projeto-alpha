@@ -23,7 +23,7 @@ namespace Mack.ToDoListAPI.Controllers;
             // Problema 1: Vulnerabilidade de segurança - exposição de dados sensíveis
             LogSensitiveData();
 
-            return ToDoItems;
+            return Ok(ToDoItems);
         }
 
         [HttpPost]    
