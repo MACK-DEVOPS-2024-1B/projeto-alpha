@@ -1,0 +1,6 @@
+@Mack.ToDoListAPI_HostAddress = http://localhost:5189
+
+GET {{Mack.ToDoListAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
