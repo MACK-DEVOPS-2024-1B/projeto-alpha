@@ -106,6 +106,8 @@ namespace Mack.ToDoListAPI.Controllers
 
             // Linhas duplicadas
             _logger.LogInformation("Sensitive data: {0}", ToDoItems);
+            
+
         }
 
         private bool IsValidTitle(string title)
