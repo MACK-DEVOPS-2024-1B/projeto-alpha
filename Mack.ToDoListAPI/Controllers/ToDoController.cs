@@ -80,6 +80,7 @@ namespace Mack.ToDoListAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         public IActionResult Get(int id)
         {
             // Problema 6: Vulnerabilidade de segurança - informações sensíveis expostas
