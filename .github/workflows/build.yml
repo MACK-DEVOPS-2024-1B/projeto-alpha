@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - feature/*
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -43,6 +44,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Iaudit.Framework.WebCrawler" /o:"josercf-github" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"MACK-DEVOPS-2024-1B_projeto-alpha" /o:"mack-devops-2024-1b" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build .\Mack.ToDoListAPI\Mack.ToDoListAPI.csproj
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
