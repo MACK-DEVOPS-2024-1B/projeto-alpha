@@ -49,7 +49,7 @@ namespace Mack.ToDoListAPI.Controllers
         public IActionResult Delete(int id)
         {
             // Problema 4: Manipulação direta de dados sem verificações
-            var item = ToDoItems.FirstOrDefault(x => x.Id == id);
+            var item = ToDoItems.Find(x => x.Id == id);
             if (item == null)
             {
                 return NotFound();
@@ -63,7 +63,7 @@ namespace Mack.ToDoListAPI.Controllers
         public IActionResult Put(int id, ToDoItem newItem)
         {
             // Problema 5: Falta de validação de entrada (possível crash)
-            var oldItem = ToDoItems.FirstOrDefault(x => x.Id == id);
+            var oldItem = ToDoItems.Find(x => x.Id == id);
             if (oldItem == null)
             {
                 return NotFound();
@@ -83,14 +83,14 @@ namespace Mack.ToDoListAPI.Controllers
         public IActionResult Get(int id)
         {
             // Problema 6: Vulnerabilidade de segurança - informações sensíveis expostas
-            var item = ToDoItems.FirstOrDefault(x => x.Id == id);
+            var item = ToDoItems.Find(x => x.Id == id);
             if (item == null)
             {
                 return NotFound();
             }
 
             // Linhas duplicadas
-            var duplicateItem = ToDoItems.FirstOrDefault(x => x.Id == id);
+            var duplicateItem = ToDoItems.Find(x => x.Id == id);
             if (duplicateItem == null)
             {
                 return NotFound();
