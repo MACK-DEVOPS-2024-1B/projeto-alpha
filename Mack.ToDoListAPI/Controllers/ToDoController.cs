@@ -18,7 +18,7 @@ namespace Mack.ToDoListAPI.Controllers;
         }
 
         [HttpGet]
-        public IActionResult<IEnumerable<ToDoItem>> Get()
+        public IActionResult Get()
         {
             // Problema 1: Vulnerabilidade de segurança - exposição de dados sensíveis
             LogSensitiveData();
