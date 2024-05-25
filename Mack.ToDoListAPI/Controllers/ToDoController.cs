@@ -27,6 +27,7 @@ namespace Mack.ToDoListAPI.Controllers;
         }
 
         [HttpPost]    
+        [ProducesResponseType<int>(StatusCodes.Status200k)]
         public IActionResult Post(ToDoItem item)
         {
             if (item == null)
