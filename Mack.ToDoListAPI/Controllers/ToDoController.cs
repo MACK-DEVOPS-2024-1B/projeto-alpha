@@ -120,11 +120,13 @@ namespace Mack.ToDoListAPI.Controllers
     public class ToDoItem
     {
         // Problema 9: Falta de validação de propriedades
+        [Required]
         public int Id { get; set; }
 
         // Problema 10: Dados sensíveis podem ser expostos
         public string Title { get; set; }
 
-        public bool IsComplete { get; set; }
+        [required]public bool IsComplete { get; set; }
+        
     }
 }
