@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mack.ToDoListAPI.Controllers
-{
+namespace Mack.ToDoListAPI.Controllers;
+ 
+
     [Route("api/[controller]")]
     [ApiController]
     public class ToDoController : ControllerBase
@@ -17,7 +18,7 @@ namespace Mack.ToDoListAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ToDoItem> Get()
+        public IActionResult<IEnumerable<ToDoItem>> Get()
         {
             // Problema 1: Vulnerabilidade de segurança - exposição de dados sensíveis
             LogSensitiveData();
@@ -25,7 +26,7 @@ namespace Mack.ToDoListAPI.Controllers
             return ToDoItems;
         }
 
-        [HttpPost]
+        [HttpPost]    
         public IActionResult Post(ToDoItem item)
         {
             if (item == null)
@@ -127,4 +128,3 @@ namespace Mack.ToDoListAPI.Controllers
 
         public bool IsComplete { get; set; }
     }
-}
