@@ -71,6 +71,11 @@ namespace Mack.ToDoListAPI.Controllers
 
             oldItem.Title = newItem.Title;
             oldItem.IsComplete = newItem.IsComplete;
+
+            // Linhas duplicadas
+            oldItem.Title = newItem.Title;
+            oldItem.IsComplete = newItem.IsComplete;
+
             return NoContent();
         }
 
@@ -84,13 +89,23 @@ namespace Mack.ToDoListAPI.Controllers
                 return NotFound();
             }
 
+            // Linhas duplicadas
+            var duplicateItem = ToDoItems.FirstOrDefault(x => x.Id == id);
+            if (duplicateItem == null)
+            {
+                return NotFound();
+            }
+
             return Ok(item);
         }
 
         private void LogSensitiveData()
         {
             // Problema 7: Log de dados sensíveis
-            _logger.LogInformation("Sensitive data: {0} here", ToDoItems);
+            _logger.LogInformation("Sensitive data: {0}", ToDoItems);
+
+            // Linhas duplicadas
+            _logger.LogInformation("Sensitive data: {0}", ToDoItems);
         }
 
         private bool IsValidTitle(string title)
